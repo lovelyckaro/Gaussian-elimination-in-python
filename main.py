@@ -17,9 +17,9 @@ for x in range(0, row):
     for y in range(0, col):
         d = int(input("Value of d({}, {}): ".format(r,c)))
         tempRowList.append(d)
-        c+=1
+        c += 1
     matrix.append(tempRowList)
-    r+=1
+    r += 1
     c = 1
 
 oMatrix = list(matrix)
@@ -36,40 +36,40 @@ while j != row:
 t = 0
 j = 1
 l = 0
-for x in range(0, row-1):
+for x in range(0, row - 1):
     while t != row-1:
-        k = -1*(matrix[j][l]/matrix[l][l])
+        k = -matrix[j][l] / matrix[l][l]
         prevRowTemp = [i * k for i in matrix[l]]
         matrix[j] = list(map(add, matrix[j], prevRowTemp))
 
-        t+=1
-        j+=1
-    t-=1
-    j-=1
-    l+=1
+        t += 1
+        j += 1
+    t -= 1
+    j -= 1
+    l += 1
 
 #"Gaussing" upwards
-t = row-1
-j = row-2
-l = row-1
-for x in range(row-1, 0, -1):
+t = row - 1
+j = row - 2
+l = row - 1
+for x in range(row - 1, 0, - 1):
     while t != 0:
-        k = -1*(matrix[j][l]/matrix[l][l])
+        k = -matrix[j][l] / matrix[l][l]
         prevRowTemp = [i * k for i in matrix[l]]
         matrix[j] = list(map(add, matrix[j], prevRowTemp))
 
-        j-=1
-        t-=1
-    t+=1
-    j+=1
-    l-=1
+        j -= 1
+        t -= 1
+    t += 1
+    j += 1
+    l -= 1
 
 #Fine tuning. Making sure that the pivot elements are equal to one
 j = 0
 for x in range(0, row):
     if matrix[j][j] != 1:    
-        matrix[j][:] = [i/matrix[j][j] for i in matrix[j]]
-    j+=1    
+        matrix[j][:] = [i / matrix[j][j] for i in matrix[j]]
+    j + 1    
 
 map(int, matrix)
 
