@@ -1,7 +1,7 @@
-#RREF in python using Gaussian elimination#
+# RREF in python using Gaussian elimination #
 This is a school project. While we do intend to optimize as much as possible, do not expect it to outperform anything.
 
-##To-do list##
+## To-do list ##
 * [DONE]Row-Swapping/check for 0 at first element AND d(2,2), d(3,3) and so on
 * [DONE]Check for invalid dimensions
 * [DONE]Clean up test-code
