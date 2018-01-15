@@ -1,14 +1,12 @@
 from operator import add
 import sys
 #Dim-Input from user
-row = int(input("Mata in antalet rader på matrisen: "))
-col = int(input("Mata in antalet kolonner på matrisen: "))
+row = int(input("Number of rows: "))
+col = int(input("Number of columns: "))
 
-#Check for invalid dimensions
+#Check for invalid dimensions (These shouldn't actually be invalid, with proper functionality)
 if row > col:
-    sys.exit("ERROR: Invalida dimensioner")
-else:
-    print("Valid dimension:")
+    sys.exit("ERROR: Invalid dimensions")
 
 #Element-Input from user
 matrix = []
@@ -17,7 +15,7 @@ c = 1
 for x in range(0, row):
     tempRowList = []
     for y in range(0, col):
-        d = int(input("Ange värde för d({}, {}): ".format(r,c)))
+        d = int(input("Value of d({}, {}): ".format(r,c)))
         tempRowList.append(d)
         c+=1
     matrix.append(tempRowList)
@@ -26,7 +24,7 @@ for x in range(0, row):
 
 oMatrix = list(matrix)
 
-#Checking for Zeros; if there is a zero where there should be piv-element, it performs a row-swap
+#Checking for Zeroes; if there is a zero where there should be piv-element, it performs a row-swap
 j = 0
 while j != row:
     if matrix[j][j] == 0:
@@ -75,6 +73,6 @@ for x in range(0, row):
 
 map(int, matrix)
 
-print("Den radkanoniska matrisen är:")
+print("The matrix in row echelon form:")
 for x in range(0, row):
     print(matrix[x])
