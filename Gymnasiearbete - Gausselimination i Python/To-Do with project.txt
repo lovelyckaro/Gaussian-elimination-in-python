@@ -1,0 +1,6 @@
+Things that ought to be done with the project:
+*[DONE]Row-Swapping/check for 0 at first element AND d(2,2), d(3,3) and so on
+*[DONE]Check for invalid dimensions
+*[DONE]Clean up test-code
+*[DONE]Add comments about what everything does
+*Make the end result of rref-matrix look pretty
