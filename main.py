@@ -4,6 +4,7 @@ from operator import add
 def printMatrix(matrix):
     for i in range(0, len(matrix)):
         print(matrix[i])
+
 #Dim-Input from user
 while True:
     try:
@@ -24,11 +25,11 @@ while True:
 #    sys.exit("ERROR: Invalid dimensions")
 
 #Element-Input from user
-matrix = [] 
+matrix = []
 for i in range(0, row):
     while True:
         try:
-            tempRowList = [int(x) for x in (input("Values of {} row, seperated with spaces".format(i + 1)).split())[:col]]
+            tempRowList = [int(x) for x in (input("Values of row {}, seperated with spaces: ".format(i + 1)).split())[:col]]
             break
         except ValueError:
             print("Not valid input")
@@ -44,9 +45,9 @@ oMatrix = list(matrix)
 j = 0
 while j != row:
     if matrix[j][j] == 0:
-        matrix[j-1], matrix[j] = matrix[j], matrix[j-1]
+        matrix[j - 1], matrix[j] = matrix[j], matrix[j - 1]
     else:
-        j+=1
+        j += 1
 
 #"Gaussing" downwards
 t = 0
@@ -82,13 +83,9 @@ for x in range(row - 1, 0, - 1):
     l -= 1
 
 #Fine tuning. Making sure that the pivot elements are equal to one
-j = 0
 for x in range(0, row):
-    if matrix[j][j] != 1:    
-        matrix[j][:] = [i / matrix[j][j] for i in matrix[j]]
-    j += 1    
-
-map(int, matrix)
+    if matrix[x][x] != 1:    
+        matrix[x] = [i / matrix[x][x] for i in matrix[x]]   
 
 print("The matrix in row echelon form:")
 printMatrix(matrix)
