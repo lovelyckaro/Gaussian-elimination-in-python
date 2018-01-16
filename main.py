@@ -1,5 +1,5 @@
 from operator import add
-import sys
+#import sys
 #Dim-Input from user
 while True:
     try:
@@ -55,7 +55,7 @@ j = 1
 l = 0
 
 for x in range(0, row - 1):
-    while t != row-1:
+    while t != row - 1:
         k = -matrix[j][l] / matrix[l][l]
         prevRowTemp = [i * k for i in matrix[l]]
         matrix[j] = list(map(add, matrix[j], prevRowTemp))
