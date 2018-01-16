@@ -1,5 +1,9 @@
 from operator import add
 #import sys
+
+def printMatrix(matrix):
+    for i in range(0, len(matrix)):
+        print(matrix[i])
 #Dim-Input from user
 while True:
     try:
@@ -20,23 +24,18 @@ while True:
 #    sys.exit("ERROR: Invalid dimensions")
 
 #Element-Input from user
-matrix = []
-r = 1
-c = 1
-for x in range(0, row):
-    tempRowList = []
-    for y in range(0, col):
-        while True:
-            try:
-                d = int(input("Value of d({}, {}): ".format(r,c)))
-                tempRowList.append(d)
-                c += 1
-                break
-            except ValueError:
-                print("Not valid number")
+matrix = [] 
+for i in range(0, row):
+    while True:
+        try:
+            tempRowList = [int(x) for x in (input("Values of {} row, seperated with spaces".format(i + 1)).split())[:col]]
+            break
+        except ValueError:
+            print("Not valid input")
     matrix.append(tempRowList)
-    r += 1
-    c = 1
+
+#Print original matrix
+printMatrix(matrix)
 
 oMatrix = list(matrix)
 
@@ -87,11 +86,9 @@ j = 0
 for x in range(0, row):
     if matrix[j][j] != 1:    
         matrix[j][:] = [i / matrix[j][j] for i in matrix[j]]
-    j + 1    
+    j += 1    
 
 map(int, matrix)
 
 print("The matrix in row echelon form:")
-
-for x in range(0, row):
-    print(matrix[x])
+printMatrix(matrix)
