@@ -1,12 +1,23 @@
 from operator import add
 import sys
 #Dim-Input from user
-row = int(input("Number of rows: "))
-col = int(input("Number of columns: "))
+while True:
+    try:
+        row = int(input("Number of rows: "))
+        break
+    except ValueError:
+        print("ERROR: Not a valid number")
+
+while True:
+    try:
+        col = int(input("Number of columns: "))
+        break
+    except ValueError:
+        print("ERROR: Not a valid number")
 
 #Check for invalid dimensions (These shouldn't actually be invalid, with proper functionality)
-if row > col:
-    sys.exit("ERROR: Invalid dimensions")
+#if row > col:
+#    sys.exit("ERROR: Invalid dimensions")
 
 #Element-Input from user
 matrix = []
@@ -15,9 +26,14 @@ c = 1
 for x in range(0, row):
     tempRowList = []
     for y in range(0, col):
-        d = int(input("Value of d({}, {}): ".format(r,c)))
-        tempRowList.append(d)
-        c += 1
+        while True:
+            try:
+                d = int(input("Value of d({}, {}): ".format(r,c)))
+                tempRowList.append(d)
+                c += 1
+                break
+            except ValueError:
+                print("Not valid number")
     matrix.append(tempRowList)
     r += 1
     c = 1
